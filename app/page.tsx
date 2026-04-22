@@ -44,6 +44,10 @@ const pointRules: PointRule[] = [
   { action: "Weekly Quest", points: 25 },
 ];
 
+const sortedPointRules: PointRule[] = [...pointRules].sort(
+  (a, b) => b.points - a.points || a.action.localeCompare(b.action),
+);
+
 const pointRulesDescription =
   "Å være cracked betyr å få 50+ i Deeplol Score. Gjelder kun turneringsmatcher: +5 OMS-poeng for hver game hvor du oppnår 50+ i Deeplol Score. Turneringsmatcher spilles i Bo3, så én match kan gi opptil +15 poeng (3 games × 5 poeng).";
 
@@ -232,7 +236,7 @@ const Home = () => {
                 </tr>
               </thead>
               <tbody>
-                {pointRules.map((rule) => (
+                {sortedPointRules.map((rule) => (
                   <tr key={rule.action} className="border-t border-white/10">
                     <td className={tdClass}>{rule.action}</td>
                     <td className={`${tdClass} text-right font-mono`}>

@@ -1,4 +1,5 @@
 import Galaxy from "@/components/Galaxy";
+import UpcomingMatches from "@/components/UpcomingMatches";
 
 type PointRule = {
   action: string;
@@ -194,6 +195,8 @@ const Home = () => {
             Oversikt over OMS-poeng, lagtabell og ukens quest.
           </p>
         </header>
+
+        <UpcomingMatches />
 
         <section className="flex flex-col gap-3">
           <h2 className="text-xl font-semibold">Tabell</h2>

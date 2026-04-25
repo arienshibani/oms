@@ -55,8 +55,8 @@ const pointRulesDescription =
 const history: HistoryEntry[] = [
     {
     id: "2026-04-24-weekly-q",
-    timestamp: "2026-04-21T19:30",
-    displayTime: "21. april 2026, 19:30",
+    timestamp: "2026-04-24T21:31",
+    displayTime: "24. april 2026, 21:31",
     reason: "Fullførte weekly OMS.",
     awards: [{ player: "BPK SHLEEP", points: 25 }],
   },

@@ -164,7 +164,7 @@ const questTable: QuestRow[] = [
         5 victories totalt med <strong>Kalista ADC</strong> i Flex / Solo queue
       </>
     ),
-    completed: false,
+    completed: true,
   },
   {
     player: "BPK DOGCAT",
@@ -174,7 +174,7 @@ const questTable: QuestRow[] = [
         queue
       </>
     ),
-    completed: false,
+    completed: true,
   },
 ];
 

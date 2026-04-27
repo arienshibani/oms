@@ -53,12 +53,19 @@ const pointRulesDescription =
   "Å være cracked betyr å få 50+ i Deeplol Score. Gjelder kun turneringsmatcher: +5 OMS-poeng for hver game hvor du oppnår 50+ i Deeplol Score. Turneringsmatcher spilles i Bo3, så én match kan gi opptil +15 poeng (3 games × 5 poeng).";
 
 const history: HistoryEntry[] = [
+  {
+    id: "2026-04-27-weekly-q",
+    timestamp: "2026-04-27T15:23",
+    displayTime: "27. april 2026, 14:24",
+    reason: "Fullførte weekly OMS.",
+    awards: [{ player: "BPK DOGCAT", points: 25 }],
+  },
     {
     id: "2026-04-26-weekly-q",
     timestamp: "2026-04-26T15:23",
     displayTime: "26. april 2026, 15:23",
     reason: "Fullførte weekly OMS.",
-    awards: [{ player: "BPK Boobdue", points: 25 }],
+    awards: [{ player: "BPK Boobdude", points: 25 }],
   },
   {
     id: "2026-04-24-weekly-q",

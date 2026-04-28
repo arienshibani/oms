@@ -343,7 +343,7 @@ const Home = () => {
                 dateTime="2026-04-28T12:00"
                 className="font-mono text-zinc-200"
               >
-                28. april 2026, 12:00
+                05. mai 2026, 12:00
               </time>
             </p>
         </section>

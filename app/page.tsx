@@ -54,20 +54,52 @@ const pointRulesDescription =
 
 const history: HistoryEntry[] = [
   {
-    id: "2026-04-27-weekly-q",
+    id: "2026-04-28-bo3-cracked",
+    timestamp: "2026-04-28T21:00",
+    displayTime: "28. april 2026, ~21:00",
+    reason: (
+      <>
+        Var cracked mot Oslo Døves: DOGCAT og  Boobdude i game 1,
+        Solopolocolololo i game 2 – 50+ Deeplol Score (+5 OMS per game).
+      </>
+    ),
+    awards: [
+      { player: "BPK DOGCAT", points: 5 },
+      { player: "BPK Boobdude", points: 5 },
+      { player: "BPK Solopolocolololo", points: 5 },
+    ],
+  },
+  {
+    id: "2026-04-28-bo3-participation",
+    timestamp: "2026-04-28T19:30",
+    displayTime: "28. april 2026, 19:30",
+    reason:
+      "Deltagelse i Bo3-turneringsmatch (alle på laget unntatt BPK Balagurbiz, som ikke møtte opp).",
+    awards: [
+      { player: "BPK SHLEEP", points: 20 },
+      { player: "BPK Solopolocolololo", points: 20 },
+      { player: "BPK Boobdude", points: 20 },
+      { player: "BPK DOGCAT", points: 20 },
+    ],
+  },
+  {
+    id: "2026-04-27-weekly-q-balagurbiz",
     timestamp: "2026-04-27T22:24",
     displayTime: "27. april 2026, 22:24",
     reason: "Fullførte weekly OMS.",
     awards: [{ player: "BPK Balagurbiz", points: 25 }],
   },
   {
-    id: "2026-04-27-weekly-q",
+    id: "2026-04-27-weekly-q-dogcat-solo",
     timestamp: "2026-04-27T15:23",
     displayTime: "27. april 2026, 14:24",
     reason: "Fullførte weekly OMS.",
-    awards: [{ player: "BPK DOGCAT", points: 25 }, { player: "BPK Solopolocolololo", points: 25 }],
+    awards: [
+      { player: "BPK DOGCAT", points: 25 },
+      { player: "BPK Solopolocolololo", points: 25 },
+    ],
   },
-    {
+  {
     id: "2026-04-26-weekly-q",
     timestamp: "2026-04-26T15:23",
     displayTime: "26. april 2026, 15:23",

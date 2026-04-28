@@ -65,7 +65,7 @@ const history: HistoryEntry[] = [
     timestamp: "2026-04-27T15:23",
     displayTime: "27. april 2026, 14:24",
     reason: "Fullførte weekly OMS.",
-    awards: [{ player: "BPK DOGCAT", points: 25 }],
+    awards: [{ player: "BPK DOGCAT", points: 25 }, { player: "BPK Solopolocolololo", points: 25 }],
   },
     {
     id: "2026-04-26-weekly-q",

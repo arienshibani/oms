@@ -55,6 +55,13 @@ const pointRulesDescription =
 const history: HistoryEntry[] = [
   {
     id: "2026-04-27-weekly-q",
+    timestamp: "2026-04-27T22:24",
+    displayTime: "27. april 2026, 22:24",
+    reason: "Fullførte weekly OMS.",
+    awards: [{ player: "BPK Balagurbiz", points: 25 }],
+  },
+  {
+    id: "2026-04-27-weekly-q",
     timestamp: "2026-04-27T15:23",
     displayTime: "27. april 2026, 14:24",
     reason: "Fullførte weekly OMS.",
@@ -133,7 +140,7 @@ const questTable: QuestRow[] = [
     player: "BPK Balagurbiz",
     quest: (
       <>
-        5 victories totalt med <strong>Vayne Top</strong> i Flex / Solo queue
+        3 games med +50 i deeplol score på <strong>Gragas Top</strong> i Flex / Solo Q
       </>
     ),
     completed: false,
@@ -142,17 +149,17 @@ const questTable: QuestRow[] = [
     player: "BPK SHLEEP",
     quest: (
       <>
-        5 victories totalt med <strong>Sejuani Jungle</strong> i Flex / Solo
-        queue
+        3 games med +50 i deeplol score på <strong>Taric Jungle</strong> i Flex / Solo Q
+        Q
       </>
     ),
-    completed: true,
+    completed: false,
   },
   {
     player: "BPK Solopolocolololo",
     quest: (
       <>
-        5 victories totalt med <strong>Ahri Mid</strong> i Flex / Solo queue
+        3 games med +50 i deeplol score på <strong>Galio Mid</strong> i Flex / Solo Q
       </>
     ),
     completed: false,
@@ -161,20 +168,19 @@ const questTable: QuestRow[] = [
     player: "BPK Boobdude",
     quest: (
       <>
-        5 victories totalt med <strong>Kalista ADC</strong> i Flex / Solo queue
+        3 games med +50 i deeplol score på <strong>Aphelios ADC</strong> i Flex / Solo Q
       </>
     ),
-    completed: true,
+    completed: false,
   },
   {
     player: "BPK DOGCAT",
     quest: (
       <>
-        5 victories totalt med <strong>Renata Glasc</strong> i Flex / Solo
-        queue
+        3 games med +50 i deeplol score på <strong>Le Blanc Support</strong> i Flex / Solo Q
       </>
     ),
-    completed: true,
+    completed: false,
   },
 ];
 

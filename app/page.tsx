@@ -18,7 +18,11 @@ type QuestRow = {
 };
 
 type HistoryAward = {
-  player: string;
+  player: "BPK Balagurbiz" 
+  | "BPK SHLEEP" 
+  | "BPK Solopolocolololo" 
+  | "BPK Boobdude" 
+  | "BPK DOGCAT";
   points: number;
 };
 
@@ -68,7 +72,7 @@ const history: HistoryEntry[] = [
       { player: "BPK Boobdude", points: 5 },
       { player: "BPK Solopolocolololo", points: 5 },
     ],
-  }
+  },
   {
     id: "2026-05-03-weekly-q",
     timestamp: "2026-04-28T21:00",

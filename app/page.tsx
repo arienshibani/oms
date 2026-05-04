@@ -17,12 +17,18 @@ type QuestRow = {
   completed: boolean;
 };
 
+const roster = [
+  "BPK Balagurbiz",
+  "BPK SHLEEP",
+  "BPK Solopolocolololo",
+  "BPK Boobdude",
+  "BPK DOGCAT",
+] as const;
+
+type RosterPlayer = (typeof roster)[number];
+
 type HistoryAward = {
-  player: "BPK Balagurbiz" 
-  | "BPK SHLEEP" 
-  | "BPK Solopolocolololo" 
-  | "BPK Boobdude" 
-  | "BPK DOGCAT";
+  player: RosterPlayer;
   points: number;
 };
 
@@ -33,14 +39,6 @@ type HistoryEntry = {
   reason: React.ReactNode;
   awards: HistoryAward[];
 };
-
-const roster: string[] = [
-  "BPK Balagurbiz",
-  "BPK SHLEEP",
-  "BPK Solopolocolololo",
-  "BPK Boobdude",
-  "BPK DOGCAT",
-];
 
 const pointRules: PointRule[] = [
   { action: "Deltagelse i Match", points: 20 },
@@ -57,6 +55,21 @@ const pointRulesDescription =
   "Å være cracked betyr å få 50+ i Deeplol Score. Gjelder kun turneringsmatcher: +5 OMS-poeng for hver game hvor du oppnår 50+ i Deeplol Score. Turneringsmatcher spilles i Bo3, så én match kan gi opptil +15 poeng (3 games × 5 poeng).";
 
 const history: HistoryEntry[] = [
+  {
+    id: "2026-05-03-weekly-q",
+    timestamp: "2026-04-28T21:00",
+    displayTime: "3. Mai 2026, 12:00",
+    reason: (
+      <>
+        Fullførte weekly OMS Quest #2 !
+      </>
+    ),
+    awards: [{ player: "BPK Boobdude", points: 25 },
+      { player: "BPK SHLEEP", points: 25 },
+      { player: "BPK Solopolocolololo", points: 25 },
+      { player: "BPK DOGCAT", points: 25 },
+    ],
+  },
   {
     id: "2026-04-28-bo3-cracked",
     timestamp: "2026-04-28T21:00",
@@ -191,7 +204,7 @@ const questTable: QuestRow[] = [
     player: "BPK Balagurbiz",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Gragas Top</strong> i Flex / Solo Q
+        3 games med +50 i deeplol score på <strong>Gragas Top</strong> i Rangert spill
       </>
     ),
     completed: false,
@@ -200,38 +213,38 @@ const questTable: QuestRow[] = [
     player: "BPK SHLEEP",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Taric Jungle</strong> i Flex / Solo Q
+        3 games med +50 i deeplol score på <strong>Taric Jungle</strong> i Rangert spill
         Q
       </>
     ),
-    completed: false,
+    completed: true,
   },
   {
     player: "BPK Solopolocolololo",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Galio Mid</strong> i Flex / Solo Q
+        3 games med +50 i deeplol score på <strong>Galio Mid</strong> i Rangert spill
       </>
     ),
-    completed: false,
+    completed: true,
   },
   {
     player: "BPK Boobdude",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Aphelios ADC</strong> i Flex / Solo Q
+        3 games med +50 i deeplol score på <strong>Aphelios ADC</strong> i Rangert spill
       </>
     ),
-    completed: false,
+    completed: true,
   },
   {
     player: "BPK DOGCAT",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Le Blanc Support</strong> i Flex / Solo Q
+        3 games med +50 i deeplol score på <strong>Le Blanc Support</strong> i Rangert spill
       </>
     ),
-    completed: false,
+    completed: true,
   },
 ];
 

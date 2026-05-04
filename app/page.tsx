@@ -68,6 +68,21 @@ const history: HistoryEntry[] = [
       { player: "BPK Boobdude", points: 5 },
       { player: "BPK Solopolocolololo", points: 5 },
     ],
+  }
+  {
+    id: "2026-05-03-weekly-q",
+    timestamp: "2026-04-28T21:00",
+    displayTime: "3. Mai 2026, 12:00",
+    reason: (
+      <>
+        Fullførte weekly OMS
+      </>
+    ),
+    awards: [
+      { player: "BPK Solopolocolololo", points: 25 },
+      { player: "BPK DOGCAT", points: 25 },
+      { player: "BPK SHLEEP", points: 25 },
+    ],
   },
   {
     id: "2026-04-28-bo3-participation",

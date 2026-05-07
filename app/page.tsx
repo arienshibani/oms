@@ -59,7 +59,7 @@ const history: HistoryEntry[] = [
   {
     id: "2026-05-07-bo3-boomer-participation",
     timestamp: "2026-05-07T19:30",
-    displayTime: "7. mai 2026, 19:30",
+    displayTime: "5. mai 2026, 19:00",
     reason:
       "Deltagelse i Bo3-turneringsmatch mot Boomer Gamers (2–1 seier).",
     awards: [
@@ -73,7 +73,7 @@ const history: HistoryEntry[] = [
   {
     id: "2026-05-07-bo3-boomer-cracked",
     timestamp: "2026-05-07T20:30",
-    displayTime: "7. mai 2026, ~20:30",
+    displayTime: "5. mai 2026, ~20:30",
     reason: (
       <>
         Alle var cracked i begge vunne games mot Boomer Gamers - 
@@ -158,14 +158,14 @@ const history: HistoryEntry[] = [
     id: "2026-04-27-weekly-q-balagurbiz",
     timestamp: "2026-04-27T22:24",
     displayTime: "27. april 2026, 22:24",
-    reason: "Fullførte weekly OMS.",
+    reason: "Fullførte weekly OMS #1.",
     awards: [{ player: "BPK Balagurbiz", points: 25 }],
   },
   {
     id: "2026-04-27-weekly-q-dogcat-solo",
     timestamp: "2026-04-27T15:23",
     displayTime: "27. april 2026, 14:24",
-    reason: "Fullførte weekly OMS.",
+    reason: "Fullførte weekly OMS #1.",
     awards: [
       { player: "BPK DOGCAT", points: 25 },
       { player: "BPK Solopolocolololo", points: 25 },
@@ -175,14 +175,14 @@ const history: HistoryEntry[] = [
     id: "2026-04-26-weekly-q",
     timestamp: "2026-04-26T15:23",
     displayTime: "26. april 2026, 15:23",
-    reason: "Fullførte weekly OMS.",
+    reason: "Fullførte weekly OMS #1.",
     awards: [{ player: "BPK Boobdude", points: 25 }],
   },
   {
     id: "2026-04-24-weekly-q",
     timestamp: "2026-04-24T21:31",
     displayTime: "24. april 2026, 21:31",
-    reason: "Fullførte weekly OMS.",
+    reason: "Fullførte weekly OMS #1.",
     awards: [{ player: "BPK SHLEEP", points: 25 }],
   },
   {

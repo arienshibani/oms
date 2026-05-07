@@ -189,7 +189,7 @@ const MatchRow = ({ entry }: MatchRowProps) => {
 };
 
 const UpcomingMatches = () => {
-  const matches = useMemo(() => getOurUpcomingMatches(), []);
+  const allMatches = useMemo(() => getOurUpcomingMatches(), []);
   const [now, setNow] = useState<number | null>(null);
 
   useEffect(() => {
@@ -199,7 +199,17 @@ const UpcomingMatches = () => {
     return () => window.clearInterval(id);
   }, []);
 
-  if (matches.length === 0) {
+  // Until the client clock is available, render the same data the server
+  // prerendered to keep hydration consistent. Once `now` is set, drop any
+  // match whose start time has already passed.
+  const futureMatches =
+    now == null
+      ? allMatches
+      : allMatches.filter(
+          (m) => m.startTime != null && m.startTime.getTime() > now,
+        );
+
+  if (futureMatches.length === 0) {
     return (
       <section className="flex flex-col gap-3">
         <h2 className="text-xl font-semibold">🗓️ Kommende Matcher</h2>
@@ -210,15 +220,8 @@ const UpcomingMatches = () => {
     );
   }
 
-  const nextMatch = (() => {
-    if (now == null) return matches[0];
-    const upcoming = matches.find(
-      (m) => m.startTime != null && m.startTime.getTime() > now,
-    );
-    return upcoming ?? matches[0];
-  })();
-
-  const rest = matches.filter((m) => m.match.id !== nextMatch.match.id);
+  const nextMatch = futureMatches[0];
+  const rest = futureMatches.slice(1);
 
   return (
     <section className="flex flex-col gap-4">

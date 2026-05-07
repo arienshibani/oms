@@ -33,12 +33,45 @@ type HistoryAward = {
   points: number;
 };
 
+type HistoryEntryType = "match" | "training" | "cracked" | "weekly_quest";
+
 type HistoryEntry = {
   id: string;
+  type: HistoryEntryType;
   timestamp: string;
   displayTime: string;
   reason: React.ReactNode;
   awards: HistoryAward[];
+};
+
+const historyTypeStyles: Record<
+  HistoryEntryType,
+  { container: string; label: string; badge: string }
+> = {
+  match: {
+    container:
+      "border-sky-400/30 bg-linear-to-br from-sky-500/10 via-black/50 to-black/40",
+    label: "text-sky-300",
+    badge: "Match",
+  },
+  training: {
+    container:
+      "border-violet-400/30 bg-linear-to-br from-violet-500/10 via-black/50 to-black/40",
+    label: "text-violet-300",
+    badge: "Trening",
+  },
+  cracked: {
+    container:
+      "border-amber-400/40 bg-linear-to-br from-amber-500/10 via-black/50 to-black/40",
+    label: "text-amber-300",
+    badge: "Cracked",
+  },
+  weekly_quest: {
+    container:
+      "border-emerald-400/30 bg-linear-to-br from-emerald-500/10 via-black/50 to-black/40",
+    label: "text-emerald-300",
+    badge: "Weekly Quest",
+  },
 };
 
 const pointRules: PointRule[] = [
@@ -58,10 +91,11 @@ const pointRulesDescription =
 const history: HistoryEntry[] = [
   {
     id: "2026-05-07-bo3-boomer-participation",
+    type: "match",
     timestamp: "2026-05-07T19:30",
-    displayTime: "5. mai 2026, 19:00",
+    displayTime: "5. mai 2026, 19:30",
     reason:
-      "Deltagelse i Bo3-turneringsmatch mot Boomer Gamers (2–1 seier).",
+      "Deltagelse i turneringsmatch mot Boomer Gamers.",
     awards: [
       { player: "BPK Boobdude", points: 20 },
       { player: "BPK SHLEEP", points: 20 },
@@ -72,14 +106,10 @@ const history: HistoryEntry[] = [
   },
   {
     id: "2026-05-07-bo3-boomer-cracked",
+    type: "cracked",
     timestamp: "2026-05-07T20:30",
     displayTime: "5. mai 2026, ~20:30",
-    reason: (
-      <>
-        Alle var cracked i begge vunne games mot Boomer Gamers - 
-        Score (+5 OMS per game × 2 games = +10 hver, ad-hoc pga riot API trøbbel)
-      </>
-    ),
+    reason: "Var cracked i turneringsmatch mot Boomer Gamers.",
     awards: [
       { player: "BPK Boobdude", points: 10 },
       { player: "BPK SHLEEP", points: 10 },
@@ -90,21 +120,20 @@ const history: HistoryEntry[] = [
   },
   {
     id: "2026-05-07-weekly-q-shleep-taric",
-    timestamp: "2026-05-07T18:00",
-    displayTime: "7. mai 2026",
-    reason: "Fullførte weekly OMS Quest – Taric Jungle.",
+    type: "weekly_quest",
+    timestamp: "2026-06-07T18:00",
+    displayTime: "6. mai 2026",
+    reason: "Fullførte weekly OMS Quest #3",
     awards: [{ player: "BPK SHLEEP", points: 25 }],
   },
   {
     id: "2026-05-03-weekly-q",
-    timestamp: "2026-04-28T21:00",
-    displayTime: "3. Mai 2026, 12:00",
-    reason: (
-      <>
-        Fullførte weekly OMS Quest #2 !
-      </>
-    ),
-    awards: [{ player: "BPK Boobdude", points: 25 },
+    type: "weekly_quest",
+    timestamp: "2026-05-03T12:00",
+    displayTime: "3. mai 2026, 12:00",
+    reason: "Fullførte weekly OMS Quest #2",
+    awards: [
+      { player: "BPK Boobdude", points: 25 },
       { player: "BPK SHLEEP", points: 25 },
       { player: "BPK Solopolocolololo", points: 25 },
       { player: "BPK DOGCAT", points: 25 },
@@ -112,12 +141,12 @@ const history: HistoryEntry[] = [
   },
   {
     id: "2026-04-28-bo3-cracked",
+    type: "cracked",
     timestamp: "2026-04-28T21:00",
     displayTime: "28. april 2026, ~21:00",
     reason: (
       <>
-        Var cracked mot Oslo Døves: DOGCAT og  Boobdude i game 1,
-        Solopolocolololo i game 2 – 50+ Deeplol Score (+5 OMS per game).
+        Var cracked mot Oslo Døves.
       </>
     ),
     awards: [
@@ -126,27 +155,14 @@ const history: HistoryEntry[] = [
       { player: "BPK Solopolocolololo", points: 5 },
     ],
   },
-  {
-    id: "2026-05-03-weekly-q",
-    timestamp: "2026-04-28T21:00",
-    displayTime: "3. Mai 2026, 12:00",
-    reason: (
-      <>
-        Fullførte weekly OMS Weekly #2
-      </>
-    ),
-    awards: [
-      { player: "BPK Solopolocolololo", points: 25 },
-      { player: "BPK DOGCAT", points: 25 },
-      { player: "BPK SHLEEP", points: 25 },
-    ],
-  },
+
   {
     id: "2026-04-28-bo3-participation",
+    type: "match",
     timestamp: "2026-04-28T19:30",
     displayTime: "28. april 2026, 19:30",
     reason:
-      "Deltagelse i Bo3-turneringsmatch (alle på laget unntatt BPK Balagurbiz, som ikke møtte opp).",
+      "Deltagelse i Turneringsmatch mot Oslo Døves.",
     awards: [
       { player: "BPK SHLEEP", points: 20 },
       { player: "BPK Solopolocolololo", points: 20 },
@@ -155,45 +171,32 @@ const history: HistoryEntry[] = [
     ],
   },
   {
-    id: "2026-04-27-weekly-q-balagurbiz",
+    id: "2026-04-weekly-q-1",
+    type: "weekly_quest",
     timestamp: "2026-04-27T22:24",
-    displayTime: "27. april 2026, 22:24",
-    reason: "Fullførte weekly OMS #1.",
-    awards: [{ player: "BPK Balagurbiz", points: 25 }],
-  },
-  {
-    id: "2026-04-27-weekly-q-dogcat-solo",
-    timestamp: "2026-04-27T15:23",
-    displayTime: "27. april 2026, 14:24",
+    displayTime: "24.–27. april 2026",
     reason: "Fullførte weekly OMS #1.",
     awards: [
+      { player: "BPK SHLEEP", points: 25 },
+      { player: "BPK Boobdude", points: 25 },
       { player: "BPK DOGCAT", points: 25 },
       { player: "BPK Solopolocolololo", points: 25 },
+      { player: "BPK Balagurbiz", points: 25 },
     ],
   },
   {
-    id: "2026-04-26-weekly-q",
-    timestamp: "2026-04-26T15:23",
-    displayTime: "26. april 2026, 15:23",
-    reason: "Fullførte weekly OMS #1.",
-    awards: [{ player: "BPK Boobdude", points: 25 }],
-  },
-  {
-    id: "2026-04-24-weekly-q",
-    timestamp: "2026-04-24T21:31",
-    displayTime: "24. april 2026, 21:31",
-    reason: "Fullførte weekly OMS #1.",
-    awards: [{ player: "BPK SHLEEP", points: 25 }],
-  },
-  {
     id: "2026-04-21-tournament-participation",
+    type: "match",
     timestamp: "2026-04-21T19:30",
     displayTime: "21. april 2026, 19:30",
     reason: "Deltagelse i turneringsmatch mot TBD",
-    awards: roster.map((player) => ({ player, points: 20 })),
+    awards: roster
+      .filter((player) => player !== "BPK Obese")
+      .map((player) => ({ player, points: 20 })),
   },
   {
     id: "2026-04-21-game2-cracked",
+    type: "cracked",
     timestamp: "2026-04-21T20:30",
     displayTime: "21. april 2026, ~20:30",
     reason: (
@@ -219,8 +222,9 @@ const history: HistoryEntry[] = [
   },
 ];
 
-const sortedHistory: HistoryEntry[] = [...history].sort((a, b) =>
-  b.timestamp.localeCompare(a.timestamp),
+const sortedHistory: HistoryEntry[] = [...history].sort(
+  (a, b) =>
+    b.timestamp.localeCompare(a.timestamp) || b.id.localeCompare(a.id),
 );
 
 const sortedScoreTable: ScoreRow[] = roster
@@ -470,19 +474,28 @@ const Home = () => {
           </div>
 
           <ol className="flex flex-col gap-3">
-            {sortedHistory.map((entry) => (
+            {sortedHistory.map((entry) => {
+              const typeStyle = historyTypeStyles[entry.type];
+              return (
               <li
                 key={entry.id}
-                className="rounded-lg border border-white/10 bg-black/40 p-4 backdrop-blur-sm"
+                className={`rounded-lg border p-4 backdrop-blur-sm ${typeStyle.container}`}
               >
                 <div className="flex flex-col gap-3">
                   <div className="flex flex-wrap items-baseline justify-between gap-2">
-                    <time
-                      dateTime={entry.timestamp}
-                      className="font-mono text-xs text-zinc-400"
-                    >
-                      {entry.displayTime}
-                    </time>
+                    <div className="flex flex-wrap items-baseline gap-2">
+                      <span
+                        className={`font-mono text-[10px] uppercase tracking-wider ${typeStyle.label}`}
+                      >
+                        {typeStyle.badge}
+                      </span>
+                      <time
+                        dateTime={entry.timestamp}
+                        className="font-mono text-xs text-zinc-400"
+                      >
+                        {entry.displayTime}
+                      </time>
+                    </div>
                     <span className="font-mono text-xs text-zinc-500">
                       {entry.awards.reduce(
                         (sum, award) => sum + award.points,
@@ -509,7 +522,8 @@ const Home = () => {
                   </ul>
                 </div>
               </li>
-            ))}
+              );
+            })}
           </ol>
         </section>
       </main>

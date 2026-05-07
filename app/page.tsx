@@ -23,6 +23,7 @@ const roster = [
   "BPK Solopolocolololo",
   "BPK Boobdude",
   "BPK DOGCAT",
+  "BPK Obese",
 ] as const;
 
 type RosterPlayer = (typeof roster)[number];
@@ -52,9 +53,48 @@ const sortedPointRules: PointRule[] = [...pointRules].sort(
 );
 
 const pointRulesDescription =
-  "Å være cracked betyr å få 50+ i Deeplol Score. Gjelder kun turneringsmatcher: +5 OMS-poeng for hver game hvor du oppnår 50+ i Deeplol Score. Turneringsmatcher spilles i Bo3, så én match kan gi opptil +15 poeng (3 games × 5 poeng).";
+  "Å være cracked betyr å få 50+ i Deeplol Score. Gjelder kun turneringsmatcher: +5 OMS-poeng for hver game hvor du oppnår 50+ i Deeplol Score. Turneringsmatcher spilles i Bo3, så én match kan gi opptil +15 poeng (3 games × 5 poeng). Skulle det være problemer med å observere deeplolscore, så vil lagleder gi alle deltagere +5 hvis laget vinner runden.";
 
 const history: HistoryEntry[] = [
+  {
+    id: "2026-05-07-bo3-boomer-participation",
+    timestamp: "2026-05-07T19:30",
+    displayTime: "7. mai 2026, 19:30",
+    reason:
+      "Deltagelse i Bo3-turneringsmatch mot Boomer Gamers (2–1 seier).",
+    awards: [
+      { player: "BPK Boobdude", points: 20 },
+      { player: "BPK SHLEEP", points: 20 },
+      { player: "BPK Solopolocolololo", points: 20 },
+      { player: "BPK DOGCAT", points: 20 },
+      { player: "BPK Obese", points: 20 },
+    ],
+  },
+  {
+    id: "2026-05-07-bo3-boomer-cracked",
+    timestamp: "2026-05-07T20:30",
+    displayTime: "7. mai 2026, ~20:30",
+    reason: (
+      <>
+        Alle var cracked i begge vunne games mot Boomer Gamers - 
+        Score (+5 OMS per game × 2 games = +10 hver, ad-hoc pga riot API trøbbel)
+      </>
+    ),
+    awards: [
+      { player: "BPK Boobdude", points: 10 },
+      { player: "BPK SHLEEP", points: 10 },
+      { player: "BPK Solopolocolololo", points: 10 },
+      { player: "BPK DOGCAT", points: 10 },
+      { player: "BPK Obese", points: 10 },
+    ],
+  },
+  {
+    id: "2026-05-07-weekly-q-shleep-taric",
+    timestamp: "2026-05-07T18:00",
+    displayTime: "7. mai 2026",
+    reason: "Fullførte weekly OMS Quest – Taric Jungle.",
+    awards: [{ player: "BPK SHLEEP", points: 25 }],
+  },
   {
     id: "2026-05-03-weekly-q",
     timestamp: "2026-04-28T21:00",
@@ -92,7 +132,7 @@ const history: HistoryEntry[] = [
     displayTime: "3. Mai 2026, 12:00",
     reason: (
       <>
-        Fullførte weekly OMS
+        Fullførte weekly OMS Weekly #2
       </>
     ),
     awards: [
@@ -204,7 +244,7 @@ const questTable: QuestRow[] = [
     player: "BPK Balagurbiz",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Gragas Top</strong> i Rangert spill
+        3 games med +50 i deeplol score på <strong>Tryndamere Top</strong> i Rangert spill
       </>
     ),
     completed: false,
@@ -213,7 +253,7 @@ const questTable: QuestRow[] = [
     player: "BPK SHLEEP",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Taric Jungle</strong> i Rangert spill
+        3 games med +50 i deeplol score på <strong>Lee Sin Jungle</strong> i Rangert spill
         Q
       </>
     ),
@@ -223,28 +263,37 @@ const questTable: QuestRow[] = [
     player: "BPK Solopolocolololo",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Galio Mid</strong> i Rangert spill
+        3 games med +50 i deeplol score på <strong>Vladimir Mid</strong> i Rangert spill
       </>
     ),
-    completed: true,
+    completed: false,
   },
   {
     player: "BPK Boobdude",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Aphelios ADC</strong> i Rangert spill
+        3 games med +50 i deeplol score på <strong>Brand APC</strong> i Rangert spill
       </>
     ),
-    completed: true,
+    completed: false,
   },
   {
     player: "BPK DOGCAT",
     quest: (
       <>
-        3 games med +50 i deeplol score på <strong>Le Blanc Support</strong> i Rangert spill
+        3 games med +50 i deeplol score på <strong>Pyke Support</strong> i Rangert spill
       </>
     ),
-    completed: true,
+    completed: false,
+  },
+  {
+    player: "BPK Obese",
+    quest: (
+      <>
+        3 games med +50 i deeplol score på <strong>Tryndamere</strong> Top i Rangert spill
+      </>
+    ),
+    completed: false,
   },
 ];
 
@@ -404,10 +453,10 @@ const Home = () => {
         <p className="text-sm text-zinc-400">
               Weekly On-My-Screen Quest Deadline:{" "}
               <time
-                dateTime="2026-04-28T12:00"
+                dateTime="2026-05-12T12:00"
                 className="font-mono text-zinc-200"
               >
-                05. mai 2026, 12:00
+                12. mai 2026, 12:00
               </time>
             </p>
         </section>

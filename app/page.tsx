@@ -24,6 +24,7 @@ const roster = [
   "BPK Boobdude",
   "BPK DOGCAT",
   "BPK Obese",
+  "BPK Rengwick",
 ] as const;
 
 type RosterPlayer = (typeof roster)[number];
@@ -89,6 +90,19 @@ const pointRulesDescription =
   "Å være cracked betyr å få 50+ i Deeplol Score. Gjelder kun turneringsmatcher: +5 OMS-poeng for hver game hvor du oppnår 50+ i Deeplol Score. Turneringsmatcher spilles i Bo3, så én match kan gi opptil +15 poeng (3 games × 5 poeng). Skulle det være problemer med å observere deeplolscore, så vil lagleder gi alle deltagere +5 hvis laget vinner runden.";
 
 const history: HistoryEntry[] = [
+  {
+    id: "2026-05-08-training-participation",
+    type: "training",
+    timestamp: "2026-05-08T20:00",
+    displayTime: "8. mai 2026",
+    reason: "Deltagelse i treningskamp.",
+    awards: [
+      { player: "BPK Obese", points: 10 },
+      { player: "BPK DOGCAT", points: 10 },
+      { player: "BPK SHLEEP", points: 10 },
+      { player: "BPK Rengwick", points: 10 },
+    ],
+  },
   {
     id: "2026-05-07-bo3-boomer-participation",
     type: "match",
@@ -297,6 +311,11 @@ const questTable: QuestRow[] = [
         3 games med +50 i deeplol score på <strong>Tryndamere</strong> Top i Rangert spill
       </>
     ),
+    completed: false,
+  },
+  {
+    player: "BPK Rengwick",
+    quest: <>TBD</>,
     completed: false,
   },
 ];

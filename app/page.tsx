@@ -138,7 +138,7 @@ const history: HistoryEntry[] = [
     timestamp: "2026-06-07T18:00",
     displayTime: "6. mai 2026",
     reason: "Fullførte weekly OMS Quest #3",
-    awards: [{ player: "BPK SHLEEP", points: 25 }],
+    awards: [{ player: "BPK SHLEEP", points: 25 }, { player: "BPK DOGCAT", points: 25 }],
   },
   {
     id: "2026-05-03-weekly-q",
@@ -205,7 +205,7 @@ const history: HistoryEntry[] = [
     displayTime: "21. april 2026, 19:30",
     reason: "Deltagelse i turneringsmatch mot TBD",
     awards: roster
-      .filter((player) => player !== "BPK Obese")
+      .filter((player) => player !== "BPK Obese" && player !== "BPK Rengwick")
       .map((player) => ({ player, points: 20 })),
   },
   {

@@ -101,6 +101,7 @@ const history: HistoryEntry[] = [
       { player: "BPK DOGCAT", points: 10 },
       { player: "BPK SHLEEP", points: 10 },
       { player: "BPK Rengwick", points: 10 },
+      { player: "BPK Solopolocolololo", points: 10 },
     ],
   },
   {

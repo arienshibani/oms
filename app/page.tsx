@@ -1,5 +1,7 @@
 import Galaxy from "@/components/Galaxy";
 import UpcomingMatches from "@/components/UpcomingMatches";
+import WeeklyQuestSection from "@/components/WeeklyQuestSection";
+import { roster, type RosterPlayer } from "@/lib/roster";
 
 type PointRule = {
   action: string;
@@ -10,24 +12,6 @@ type ScoreRow = {
   player: string;
   score: number;
 };
-
-type QuestRow = {
-  player: string;
-  quest: React.ReactNode;
-  completed: boolean;
-};
-
-const roster = [
-  "BPK Balagurbiz",
-  "BPK SHLEEP",
-  "BPK Solopolocolololo",
-  "BPK Boobdude",
-  "BPK DOGCAT",
-  "BPK Obese",
-  "BPK Rengwick",
-] as const;
-
-type RosterPlayer = (typeof roster)[number];
 
 type HistoryAward = {
   player: RosterPlayer;
@@ -273,69 +257,6 @@ const sortedScoreTable: ScoreRow[] = roster
     (a, b) => b.score - a.score || a.player.localeCompare(b.player),
   );
 
-const questTable: QuestRow[] = [
-  {
-    player: "BPK Balagurbiz",
-    quest: (
-      <>
-        3 games med +50 i deeplol score på <strong>Tryndamere Top</strong> i Rangert spill
-      </>
-    ),
-    completed: false,
-  },
-  {
-    player: "BPK SHLEEP",
-    quest: (
-      <>
-        3 games med +50 i deeplol score på <strong>Lee Sin Jungle</strong> i Rangert spill
-        Q
-      </>
-    ),
-    completed: true,
-  },
-  {
-    player: "BPK Solopolocolololo",
-    quest: (
-      <>
-        3 games med +50 i deeplol score på <strong>Vladimir Mid</strong> i Rangert spill
-      </>
-    ),
-    completed: false,
-  },
-  {
-    player: "BPK Boobdude",
-    quest: (
-      <>
-        3 games med +50 i deeplol score på <strong>Brand APC</strong> i Rangert spill
-      </>
-    ),
-    completed: false,
-  },
-  {
-    player: "BPK DOGCAT",
-    quest: (
-      <>
-        3 games med +50 i deeplol score på <strong>Pyke Support</strong> i Rangert spill
-      </>
-    ),
-    completed: false,
-  },
-  {
-    player: "BPK Obese",
-    quest: (
-      <>
-        3 games med +50 i deeplol score på <strong>Tryndamere</strong> Top i Rangert spill
-      </>
-    ),
-    completed: false,
-  },
-  {
-    player: "BPK Rengwick",
-    quest: <>TBD</>,
-    completed: false,
-  },
-];
-
 const tableWrapperClass =
   "overflow-x-auto rounded-lg border border-white/10 bg-black/40 backdrop-blur-sm";
 const thClass = "px-4 py-2 font-medium";
@@ -438,67 +359,7 @@ const Home = () => {
           </section>
         </div>
 
-        <section className="flex flex-col gap-4">
-          <div className="flex flex-col gap-1">
-            <h2 className="text-xl font-semibold">📅 Weekly</h2>
-            <div className="flex flex-col gap-1">
-              <p className="text-sm text-zinc-400">
-                Spillere kan få 25 OMS-poeng hvis de fullfører et oppdrag i løpet av uken. Oppdragene oppdateres hver uke. Kun rangerte kamper (Flex- eller Solo-kø) på OP.gg-profilen din, spilt innenfor tidsrammen, teller mot oppdraget.
-              </p>
-            </div>
-          </div>
-
-          <div className={tableWrapperClass}>
-            <table className="w-full border-collapse text-sm">
-              <thead className="bg-white/5 text-left">
-                <tr>
-                  <th className={`${thClass} w-56`}>Spiller</th>
-                  <th className={thClass}>Quest</th>
-                  <th className={`${thClass} w-24 text-center`}>Fullført</th>
-                </tr>
-              </thead>
-              <tbody>
-                {questTable.map((row) => (
-                  <tr key={row.player} className="border-t border-white/10">
-                    <td className={`${tdClass} align-top`}>{row.player}</td>
-                    <td className={`${tdClass} align-top text-zinc-200`}>
-                      {row.quest}
-                    </td>
-                    <td className={`${tdClass} align-top text-center`}>
-                      <span
-                        role="img"
-                        aria-label={
-                          row.completed
-                            ? `${row.player} har fullført oppdraget`
-                            : `${row.player} har ikke fullført oppdraget`
-                        }
-                        className={`pointer-events-none inline-flex h-5 w-5 select-none items-center justify-center rounded border text-xs font-bold ${
-                          row.completed
-                            ? "border-emerald-400/60 bg-emerald-500/20 text-emerald-300"
-                            : "border-white/20 bg-white/5 text-transparent"
-                        }`}
-                      >
-                        ✓
-                      </span>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </section>
-
-        <section className="flex flex-col gap-4">
-        <p className="text-sm text-zinc-400">
-              Weekly On-My-Screen Quest Deadline:{" "}
-              <time
-                dateTime="2026-05-12T12:00"
-                className="font-mono text-zinc-200"
-              >
-                12. mai 2026, 12:00
-              </time>
-            </p>
-        </section>
+        <WeeklyQuestSection />
 
         <section className="flex flex-col gap-4">
           <div className="flex flex-col gap-1">

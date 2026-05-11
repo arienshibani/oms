@@ -91,6 +91,16 @@ const pointRulesDescription =
 
 const history: HistoryEntry[] = [
   {
+    id: "2026-05-10-training-participation",
+    type: "training",
+    timestamp: "2026-05-10T20:00",
+    displayTime: "10. mai 2026",
+    reason: "Deltagelse i treningskamp.",
+    awards: roster
+      .filter((player) => player !== "BPK Rengwick")
+      .map((player) => ({ player, points: 10 })),
+  },
+  {
     id: "2026-05-08-training-participation",
     type: "training",
     timestamp: "2026-05-08T20:00",
@@ -136,10 +146,15 @@ const history: HistoryEntry[] = [
   {
     id: "2026-05-07-weekly-q-shleep-taric",
     type: "weekly_quest",
-    timestamp: "2026-06-07T18:00",
+    timestamp: "2026-05-06T18:00",
     displayTime: "6. mai 2026",
     reason: "Fullførte weekly OMS Quest #3",
-    awards: [{ player: "BPK SHLEEP", points: 25 }, { player: "BPK DOGCAT", points: 25 }],
+    awards: [
+      { player: "BPK SHLEEP", points: 25 },
+      { player: "BPK DOGCAT", points: 25 },
+      { player: "BPK Boobdude", points: 25 },
+      { player: "BPK Solopolocolololo", points: 25 },
+    ],
   },
   {
     id: "2026-05-03-weekly-q",

@@ -35,9 +35,23 @@ const WeeklyQuestSkeleton = () => (
   </section>
 );
 
-const QuestCell = ({ row }: { row: WeeklyQuestRow }) => {
+const QuestCell = ({
+  row,
+  afterRollover,
+}: {
+  row: WeeklyQuestRow;
+  afterRollover: boolean;
+}) => {
   if (row.variant === "tbd") {
     return <>TBD</>;
+  }
+  if (afterRollover) {
+    return (
+      <>
+        1 game med 75+ i deeplol score på <strong>{row.pick}</strong> i Rangert
+        spill
+      </>
+    );
   }
   return (
     <>
@@ -97,7 +111,7 @@ const WeeklyQuestSection = () => {
                 <tr key={row.player} className="border-t border-white/10">
                   <td className={`${tdClass} align-top`}>{row.player}</td>
                   <td className={`${tdClass} align-top text-zinc-200`}>
-                    <QuestCell row={row} />
+                    <QuestCell row={row} afterRollover={afterRollover} />
                   </td>
                   <td className={`${tdClass} align-top text-center`}>
                     <span
